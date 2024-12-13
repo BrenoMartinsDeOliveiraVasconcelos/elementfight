@@ -1,0 +1,7 @@
+
+== Gameplay ==
+
+rounds = 20
+computer_ai = "unifier"
+elements = 10
+dev_mode = true

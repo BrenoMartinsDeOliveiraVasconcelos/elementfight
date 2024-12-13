@@ -1,0 +1,19 @@
+== fire ==
+
+weakness = "water"
+destroys = "earth"
+
+== water ==
+
+weakness = "earth"
+destroys = "fire"
+
+== earth ==
+
+weakness = "fire"
+destroys = "water"
+
+== air ==
+
+weakness = "fire"
+destroys = "earth"
