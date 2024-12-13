@@ -235,14 +235,6 @@ class Computer(Player):
                 print(f"Computer chose {element.element} (+{element.force})")
 
                 self.choice = element
-
-                # Use the max of force possible to try to reach 10
-                while element.force + self.used_force < self.game.max_force:
-                    
-                    if self.extra_force > 0 and self.used_force < self.extra_force:
-                        self.used_force += 1
-                    else:
-                        break
                 
                 force_buff = 0
                 # Use buffing points if there is
@@ -318,6 +310,14 @@ class Computer(Player):
                             continue
                     self.elements = copy_elements.copy()
                     element = self.choice = tools.highest_force_element(self.elements)[1]
+
+                # Use the max of force possible to try to reach 10
+                while element.force + self.used_force < self.game.max_force:
+                    
+                    if self.extra_force > 0 and self.used_force < self.extra_force and not element.united:
+                        self.used_force += 1
+                    else:
+                        break
 
                 force_buff =  element.force - element.original_force                
                 self.game.movements_computer.append(f"Use {element.element}: {element.original_force}+{force_buff}+{self.used_force})")
